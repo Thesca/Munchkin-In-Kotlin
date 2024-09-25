@@ -7,13 +7,16 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -49,10 +52,10 @@ fun PlayerProgress(player: Player, onUpdate: (Player) -> Unit) {
 
         Text("Level: ${player.level}", fontSize = 20.sp)
         Row {
-            Button(onClick = { if (player.level > 1) onUpdate(player.copy(level = player.level - 1)) }) {
+            Button(onClick = { if (player.level > 1) onUpdate(player.copy(level = player.level - 1)) }, colors = ButtonDefaults.buttonColors(containerColor = Color.Black)) {
                 Text("-")
             }
-            Button(onClick = { if (player.level < 10) onUpdate(player.copy(level = player.level + 1)) }) {
+            Button(onClick = { if (player.level < 10) onUpdate(player.copy(level = player.level + 1)) }, colors = ButtonDefaults.buttonColors(containerColor = Color.Black)) {
                 Text("+")
             }
         }
@@ -63,10 +66,10 @@ fun PlayerProgress(player: Player, onUpdate: (Player) -> Unit) {
 
         Text("Bônus de Equipamento: ${player.equipmentBonus}", fontSize = 20.sp)
         Row {
-            Button(onClick = { onUpdate(player.copy(equipmentBonus = player.equipmentBonus - 1)) }) {
+            Button(onClick = { onUpdate(player.copy(equipmentBonus = player.equipmentBonus - 1)) }, colors = ButtonDefaults.buttonColors(containerColor = Color.Black)) {
                 Text("-")
             }
-            Button(onClick = { onUpdate(player.copy(equipmentBonus = player.equipmentBonus + 1)) }) {
+            Button(onClick = { onUpdate(player.copy(equipmentBonus = player.equipmentBonus + 1)) }, colors = ButtonDefaults.buttonColors(containerColor = Color.Black)) {
                 Text("+")
             }
         }
@@ -74,10 +77,10 @@ fun PlayerProgress(player: Player, onUpdate: (Player) -> Unit) {
 
         Text("Modificadores: ${player.modifiers}", fontSize = 20.sp)
         Row {
-            Button(onClick = { onUpdate(player.copy(modifiers = player.modifiers - 1)) }) {
-                Text("-")
+            Button(onClick = { onUpdate(player.copy(modifiers = player.modifiers - 1)) }, colors = ButtonDefaults.buttonColors(containerColor = Color.Black)) {
+                Text("-"    )
             }
-            Button(onClick = { onUpdate(player.copy(modifiers = player.modifiers + 1)) }) {
+            Button(onClick = { onUpdate(player.copy(modifiers = player.modifiers + 1)) }, colors = ButtonDefaults.buttonColors(containerColor = Color.Black)) {
                 Text("+")
             }
         }
